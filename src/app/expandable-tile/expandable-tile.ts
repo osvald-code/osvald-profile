@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 
 @Component({
@@ -11,9 +11,9 @@ import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 
 export class ExpandableTile {
   public title = input<string>('default');
-  public id = input<number>(0);
+  @Input() id:number =0;
   
-  readonly INITIAL_WIDTH = '80px';
+  readonly INITIAL_WIDTH = '128px';
   readonly EXPANDED_WIDTH = '80%';
 
   // Define initial dimensions in pixels

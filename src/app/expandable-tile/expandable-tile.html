@@ -1,5 +1,5 @@
 <!-- <div cdkDrag> -->
-    <button cdkDrag class="grid-button" type="button" (dblclick)="resizeElement()" [style.width]="width" [style.height]="height" [attr.data-grid-item-id]="id()">
+    <button cdkDrag class="grid-button" type="button" (dblclick)="resizeElement()" [style.width]="width" [style.height]="height" [attr.data-grid-item-id]="id">
         {{title()}}
         <button *cdkDragPlaceholder [style.width]="INITIAL_WIDTH" [style.height]="INITIAL_WIDTH" class="grid-button hidden-placeholder">
             {{title()}}

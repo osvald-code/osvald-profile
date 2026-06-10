@@ -6,7 +6,11 @@
     (cdkDropListDropped)="onDropped($event)"
     >
     @for (item of items(); track item.id) {
-      <expandable-tile [title]="item.title" [id]="item.id" [style.opacity]="item.id %6 === 0 ? 1 : 0"></expandable-tile>
+      <expandable-tile 
+        [title]="item.title" 
+        [id]="item.id" 
+        [style.opacity]="item.id % 6 === 0 ? 1 : 0" 
+      />
     }
   </div>
 </body>
