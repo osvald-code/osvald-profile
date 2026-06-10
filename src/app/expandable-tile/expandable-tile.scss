@@ -1,0 +1,23 @@
+.grid-button{
+    background-color: lightblue;
+    border: none;
+    //padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    //display: inline-block;
+    font-size: 16px;
+    //margin: 4px 2px;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease; /* Optional: smooth animation */
+
+}
+.grid-button:hover {
+    background-color: deepskyblue;
+}
+
+.hidden-placeholder {
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
