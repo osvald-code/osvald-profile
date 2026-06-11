@@ -9,9 +9,24 @@ import { CdkDrag, CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
   styleUrl: './app.scss'
 })
 export class App {
+
+  private readonly startingTitles = [
+    "Home",
+    "Projects",
+    "About",
+    "Contact"
+  ];
+
   protected readonly title = signal('osvald-profile');
-  items = signal(new Array<number>(200).fill(0).map((_, i) => ({ id: i, title: `Item ${i + 1}` })));
-  isDisabled = signal(true);
+  items = signal(
+      Array.from({ length: 200 }, (_, i) => ({
+      id: i,
+      title: this.startingTitles[i] ?? ''
+    }))
+  );
+
+
+
 
   onDropped(event: CdkDragDrop<{id:number; title:string}[]>) {
     const draggedElement = event.item.element.nativeElement;

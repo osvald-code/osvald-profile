@@ -1,15 +1,16 @@
 <body>
   <div class="gridlist" 
     cdkDropList
-    [cdkDropListSortingDisabled]="isDisabled()"
+    [cdkDropListSortingDisabled]="true"
     cdkDropListOrientation="mixed"
     (cdkDropListDropped)="onDropped($event)"
     >
-    @for (item of items(); track item.id) {
+    @for (tiles of items(); track tiles.id) {
       <expandable-tile 
-        [title]="item.title" 
-        [id]="item.id" 
-        [style.opacity]="item.id % 6 === 0 ? 1 : 0" 
+        [title]="tiles.title" 
+        [id]="tiles.id" 
+        [style.opacity]="tiles.title==='' ? 0 : 1"
+        cdkDragDisabled="tiles.title==='' ? true : false"
       />
     }
   </div>

@@ -1,8 +1,12 @@
-<!-- <div cdkDrag> -->
-    <button cdkDrag class="grid-button" type="button" (dblclick)="resizeElement()" [style.width]="width" [style.height]="height" [attr.data-grid-item-id]="id">
-        {{title()}}
-        <button *cdkDragPlaceholder [style.width]="INITIAL_WIDTH" [style.height]="INITIAL_WIDTH" class="grid-button hidden-placeholder">
+    <div cdkDrag class="grid-button" [attr.data-grid-item-id]="id" [cdkDragDisabled]="title()===''" [style.cursor]="title()==='' ? 'default' : 'pointer'">
+         <!-- this is the actual content of the tile -->
+        <div [style.width]="width" [style.height]="height" class="tile-content" >
             {{title()}}
-        </button>
-    </button>
-<!-- </div> -->
+        </div>
+        <!-- this is the placeholder for the dragged element while it's dragged -->
+        <div *cdkDragPlaceholder class="grid-button hidden-placeholder">
+            <div [style.width]="INITIAL_WIDTH" [style.height]="INITIAL_WIDTH" class="tile-content hidden-placeholder" >
+            {{title()}}
+        </div>
+        </div>
+    </div>

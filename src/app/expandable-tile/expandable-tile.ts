@@ -10,7 +10,7 @@ import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 
 
 export class ExpandableTile {
-  public title = input<string>('default');
+  public title = input<string>('');
   @Input() id:number =0;
   
   readonly INITIAL_WIDTH = '128px';
