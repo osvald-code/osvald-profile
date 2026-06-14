@@ -1,0 +1,13 @@
+  <div class="gridlist" 
+    cdkDropList
+    [cdkDropListSortingDisabled]="true"
+    cdkDropListOrientation="mixed"
+    (cdkDropListDropped)="onDropped($event)"
+    >
+    @for (tiles of items(); track tiles.id) {
+      <expandable-tile 
+        [title]="tiles.title" 
+        [id]="tiles.id"
+      />
+    }
+  </div>

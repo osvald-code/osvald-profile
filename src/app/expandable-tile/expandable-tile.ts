@@ -1,6 +1,7 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, computed, input, Input, inject} from '@angular/core';
 import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
-
+import { TileManager } from '../tile-manager';
+import { Tile } from '../tile';
 @Component({
   selector: 'expandable-tile',
   imports: [CdkDrag, CdkDragPlaceholder],
@@ -9,21 +10,13 @@ import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 })
 
 
-export class ExpandableTile {
+export class ExpandableTile{
   public title = input<string>('');
-  @Input() id:number =0;
-  
-  readonly INITIAL_WIDTH = '128px';
-  readonly EXPANDED_WIDTH = '80%';
+  @Input() id:number = 0;
+  tileManager = inject(TileManager);
 
-  // Define initial dimensions in pixels
- 
-  width:string = this.INITIAL_WIDTH;
+  isVisible = computed(() => this.title() === '');
+
+  width:string = this.tileManager.tileSize;
   height:string = this.width;
-
-  // Method to handle the resize trigger
-  resizeElement() {
-    this.width = this.width === this.INITIAL_WIDTH ? this.EXPANDED_WIDTH : this.INITIAL_WIDTH;
-    this.height = this.height === this.width ? this.EXPANDED_WIDTH : this.width;
-  }
 }
