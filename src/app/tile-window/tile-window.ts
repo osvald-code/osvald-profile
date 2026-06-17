@@ -1,4 +1,4 @@
-import { Component, signal, inject, computed, HostListener, effect, InputSignal, OnInit, WritableSignal} from '@angular/core';
+import { Component, signal, inject, computed, HostListener, effect, InputSignal, ElementRef, WritableSignal, AfterViewInit} from '@angular/core';
 import { ExpandableTile } from '../expandable-tile/expandable-tile';
 import { CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
 import { TileManager } from '../tile-manager';
@@ -6,15 +6,18 @@ import { Tile } from '../tile';
 
 @Component({
   selector: 'app-tile-window',
+  host:{
+    '(window:resize)': 'onWindowResize($event)'
+  },
   imports: [ExpandableTile, CdkDropList],
   templateUrl: './tile-window.html',
   styleUrl: './tile-window.scss',
 })
 
 
-export class TileWindow {
-
-  
+export class TileWindow implements AfterViewInit {
+ 
+  private elementRef = inject(ElementRef<HTMLElement>);
   protected readonly title = signal('osvald-profile');
   tileManager = inject(TileManager);
 
@@ -24,15 +27,27 @@ export class TileWindow {
       )
     );
 
+  onWindowResize(event: UIEvent) {
+    requestAnimationFrame(() => {
+      this.updateTileManagerSize()
+    });
+  }
 
+  ngAfterViewInit(): void {
+    this.updateTileManagerSize()
+  }
+
+  updateTileManagerSize= ():void => {
+    this.tileManager.width.set(this.elementRef.nativeElement.offsetWidth)
+    this.tileManager.height.set(this.elementRef.nativeElement.offsetHeight)
+    this.tileManager.printOut()
+  };
 
   constructor(){
-
+    this.updateTileManagerSize()
     effect(() => {
       const tileTotal = this.tileManager.tileTotal()
-      console.log("total tiles: ", tileTotal);
       if (this.items().length !== tileTotal){
-        console.log("size change");
         this.items.update(items => {
           const copy = [...items];
           if(items.length < tileTotal){
@@ -51,15 +66,6 @@ export class TileWindow {
     });
   }
 
-
-
-  // Listen to the global window resize event
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.tileManager.windowWidth.set((event.target as Window).innerWidth);
-    this.tileManager.windowHeight.set((event.target as Window).innerHeight);
-  }
-
   onDropped(event: CdkDragDrop<{id:number; title:string}[]>) {
     const draggedElement = event.item.element.nativeElement;
     const draggedId = Number(
@@ -74,7 +80,7 @@ export class TileWindow {
 
     if (!targetElement) return;
 
-   const targetId = Number(targetElement.getAttribute('data-grid-item-id'));
+    const targetId = Number(targetElement.getAttribute('data-grid-item-id'));
 
     if (Number.isNaN(targetId)) return;
     if (draggedId === targetId) return;

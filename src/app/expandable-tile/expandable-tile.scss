@@ -4,7 +4,6 @@
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    margin: 15px;  
     box-shadow:
         0 5px 5px -3px rgba(55, 47, 47, 0.2),
         0 8px 10px 1px rgba(0, 0, 0, 0.14),
@@ -26,13 +25,8 @@
 }
 .grid-button:hover {
     background-color: deepskyblue;
-
 }
 
-:host{
-    display: inline-block;
-    margin: 0;
-}
 
 .cdk-drag-preview {
     .tile-content{

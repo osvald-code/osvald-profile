@@ -1,10 +1,11 @@
 .gridlist {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 100%;
+  display: flex-wrap;
   border: solid 1px #ccc;
-  //height: 100%;
   border-radius: 4px;
-  overflow: hidden;
+  overflow:hidden;
+  height:100%;
+  width: 100%;
+  background-color: aqua;
+  justify-content: center;
+  align-content: center;
 }

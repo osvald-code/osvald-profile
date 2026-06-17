@@ -2,15 +2,16 @@
     [attr.data-grid-item-id]="id" 
     [cdkDragDisabled]="isVisible()" 
     [style.cursor]="isVisible() ? 'default' : 'pointer'"
-    [style.opacity]="isVisible() ? 0.7 : 1" 
+    [style.opacity]="isVisible() ? 0 : 1" 
+    
     >
     <!-- this is the actual content of the tile -->
-    <div [style.width]="width" [style.height]="height" class="tile-content" >
-        {{title()}}
+    <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content" >
+        {{title()}} - {{id}};
     </div>
     <!-- this is the placeholder for the dragged element while it's dragged -->
     <div *cdkDragPlaceholder class="grid-button hidden-placeholder">
-        <div [style.width]="width" [style.height]="height" class="tile-content hidden-placeholder" >
+        <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content hidden-placeholder" >
             {{title()}}
         </div>
     </div>

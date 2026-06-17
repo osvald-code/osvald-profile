@@ -16,7 +16,8 @@ export class ExpandableTile{
   tileManager = inject(TileManager);
 
   isVisible = computed(() => this.title() === '');
-
-  width:string = this.tileManager.tileSize;
-  height:string = this.width;
+  innerWidth = this.tileManager.tileInnerSize; 
+  innerHeight = this.innerWidth; //its a square lol
+  tileWidth = this.tileManager.tileOuterSize;
+  tileHeight = this.tileWidth
 }

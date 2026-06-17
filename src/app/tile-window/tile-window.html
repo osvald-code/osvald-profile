@@ -1,6 +1,9 @@
   <div class="gridlist" 
     cdkDropList
     [cdkDropListSortingDisabled]="true"
+    [style.min-height] = (this.tileManager.tileOuterSize)
+    [style.min-width] = (this.tileManager.tileOuterSize)
+  
     cdkDropListOrientation="mixed"
     (cdkDropListDropped)="onDropped($event)"
     >
