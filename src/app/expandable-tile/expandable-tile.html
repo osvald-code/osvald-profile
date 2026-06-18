@@ -1,14 +1,17 @@
 <div cdkDrag class="grid-button" 
+    cdkOverlayOrigin
+    #origin="cdkOverlayOrigin"
     [attr.data-grid-item-id]="id" 
     [cdkDragDisabled]="isVisible()" 
     [style.cursor]="isVisible() ? 'default' : 'pointer'"
     [style.opacity]="isVisible() ? 0 : 1" 
-    
+    (click)="isOverlayVisible.set(!isOverlayVisible())";
     >
     <!-- this is the actual content of the tile -->
     <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content" >
         {{title()}} - {{id}};
     </div>
+
     <!-- this is the placeholder for the dragged element while it's dragged -->
     <div *cdkDragPlaceholder class="grid-button hidden-placeholder">
         <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content hidden-placeholder" >
@@ -16,3 +19,10 @@
         </div>
     </div>
 </div>
+<ng-template 
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="origin"
+    [cdkConnectedOverlayOpen]="isOverlayVisible()"
+    (detach)="isOverlayVisible.set(false)">
+    <div class="overlay">TEST</div>
+</ng-template>
