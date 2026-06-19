@@ -3,13 +3,13 @@ import { ExpandableTile } from '../expandable-tile/expandable-tile';
 import { CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
 import { TileManager } from '../tile-manager';
 import { Tile } from '../tile';
-
+import { ExpandedOverlay } from '../expanded-overlay/expanded-overlay';
 @Component({
   selector: 'app-tile-window',
   host:{
     '(window:resize)': 'onWindowResize($event)'
   },
-  imports: [ExpandableTile, CdkDropList],
+  imports: [ExpandableTile, CdkDropList, ExpandedOverlay],
   templateUrl: './tile-window.html',
   styleUrl: './tile-window.scss',
 })

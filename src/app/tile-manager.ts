@@ -18,6 +18,8 @@ export class TileManager{
   public columnTileCount = computed(() => Math.floor(this.width() / this.tileSize));
   public rowTileCount = computed(() => Math.floor(this.height() / this.tileSize));
   public sidePadding = computed(() => `${(this.width()-(this.columnTileCount()*TileManager.TILE_WIDTH))/2}px`);
+  public isOverlayExpanded = signal(false);
+
 
   printOut = ():void => {
     console.log("width: ", this.width());

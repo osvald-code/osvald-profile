@@ -1,0 +1,14 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.card{
+    width: 90vw;
+    height: 90%;
+    background-color: brown;
+}
