@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component,inject } from '@angular/core';
+import { TileManager } from '../tile-manager';
 @Component({
   selector: 'app-expanded-overlay',
   imports:[],
@@ -9,5 +9,7 @@ import { Component } from '@angular/core';
 export class ExpandedOverlay {
   title = '';
   id!: number;
+  tileManager = inject(TileManager);
 
 }
+

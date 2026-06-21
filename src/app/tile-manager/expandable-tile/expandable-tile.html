@@ -3,11 +3,11 @@
     [cdkDragDisabled]="isVisible()" 
     [style.cursor]="isVisible() ? 'default' : 'pointer'"
     [style.opacity]="isVisible() ? 0 : 1" 
-    (click)="tileManager.isOverlayExpanded.set(!tileManager.isOverlayExpanded())";
+    (click)="tileManager.toggleOverlay()";
     >
     <!-- this is the actual content of the tile -->
     <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content" >
-        {{title()}} - {{id}};
+        {{title()}}
     </div>
 
     <!-- this is the placeholder for the dragged element while it's dragged -->

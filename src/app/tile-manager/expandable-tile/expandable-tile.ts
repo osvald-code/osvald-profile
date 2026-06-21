@@ -2,6 +2,7 @@ import { Component, computed, input, Input, inject, signal} from '@angular/core'
 import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 import { TileManager } from '../tile-manager';
 import { OverlayModule } from '@angular/cdk/overlay';
+
 @Component({
   selector: 'expandable-tile',
   imports: [CdkDrag, CdkDragPlaceholder,OverlayModule],
@@ -25,6 +26,5 @@ export class ExpandableTile{
     this.isOverlayVisible.set(!this.isOverlayVisible())
       console.log("Overlay: ",this.isOverlayVisible());
     }
-    
   };
 

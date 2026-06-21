@@ -1,11 +1,8 @@
-app-tile-window{
-    background-color: blue;
-    height: inherit;
-    width: inherit;
+ :host{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    //padding:20px
-}
-
-
+    flex-direction: column;
+    margin: 0;
+ }
