@@ -21,11 +21,7 @@ export class TileWindow implements AfterViewInit {
   protected readonly title = signal('osvald-profile');
   tileManager = inject(TileManager);
 
-  items = signal(
-      Array.from({ length: this.tileManager.tileTotal() }, (_, i) => (
-        new Tile(i,this.tileManager.startingTitles[i] ?? ''))
-      )
-    );
+
 
   onWindowResize(event: UIEvent) {
     requestAnimationFrame(() => {
@@ -47,8 +43,8 @@ export class TileWindow implements AfterViewInit {
     this.updateTileManagerSize()
     effect(() => {
       const tileTotal = this.tileManager.tileTotal()
-      if (this.items().length !== tileTotal){
-        this.items.update(items => {
+      if (this.tileManager.items().length !== tileTotal){
+        this.tileManager.items.update(items => {
           const copy = [...items];
           if(items.length < tileTotal){
             while (copy.length < tileTotal) {
@@ -58,7 +54,7 @@ export class TileWindow implements AfterViewInit {
               );
             }
           }else{
-            return copy.slice(0, tileTotal);
+            return copy.slice(0, tileTotal); //TODO : fix tile with tile being removed
           }
           return copy;
         });
@@ -85,7 +81,7 @@ export class TileWindow implements AfterViewInit {
     if (Number.isNaN(targetId)) return;
     if (draggedId === targetId) return;
 
-    this.items.update(items => {
+    this.tileManager.items.update(items => {
       const previousIndex = items.findIndex(item => item.id === draggedId);
       const targetIndex = items.findIndex(item => item.id === targetId);
 

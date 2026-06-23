@@ -1,5 +1,4 @@
 <div class="card">
-    <h2>{{ title }}</h2>
-    <p>Tile ID: {{ id }}</p>
-    <button class="close" (click)="tileManager.toggleOverlay()">Close</button>
+    <h2 class="title">{{tile.title}}</h2>
+    <button class="close" (click)="tileManager.closeOverlay()">Close</button>
 </div>

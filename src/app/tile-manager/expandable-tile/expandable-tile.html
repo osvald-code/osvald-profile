@@ -1,19 +1,26 @@
 <div cdkDrag class="grid-button" 
-    [attr.data-grid-item-id]="id" 
-    [cdkDragDisabled]="isVisible()" 
-    [style.cursor]="isVisible() ? 'default' : 'pointer'"
-    [style.opacity]="isVisible() ? 0 : 1" 
-    (click)="tileManager.toggleOverlay()";
-    >
+    [attr.data-grid-item-id]="tile().id" 
+    [cdkDragDisabled]="!isTileVisible()" 
+    [style.cursor]="isTileVisible() ? 'pointer':'default'"
+    [style.opacity]="isTileVisible() ? 1 : 0" 
+    [style.max-height]="tileManager.tileOuterSize"
+    (click)="tileManager.openOverlay(tile().id)";>
     <!-- this is the actual content of the tile -->
-    <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content" >
-        {{title()}}
+    <div class="tile-content"
+        [style.width]="innerWidth" 
+        [style.height]="innerHeight" 
+        [style.margin]="tileManager.tileMargin">
     </div>
 
     <!-- this is the placeholder for the dragged element while it's dragged -->
-    <div *cdkDragPlaceholder class="grid-button hidden-placeholder">
-        <div [style.width]="innerWidth" [style.height]="innerHeight" [style.margin]="tileManager.tileMargin" class="tile-content hidden-placeholder" >
-            {{title()}}
+    <div *cdkDragPlaceholder class="grid-button hidden-placeholder" 
+        [style.max-height]="tileManager.tileOuterSize">
+        <div class="tile-content hidden-placeholder"  
+            [style.width]="innerWidth" 
+            [style.height]="innerHeight" 
+            [style.margin]="tileManager.tileMargin" >
         </div>
+        <p class="tile-name">{{tile().title}}</p>
     </div>
+    <p class="tile-name">{{tile().title}}</p>
 </div>

@@ -22,6 +22,12 @@
     }  
 }
 
+.tile-name{
+    position: relative;
+    margin-top: 0;
+    bottom: 16px;
+}
+
 .grid-button{
     border: none;
     text-align: center;
@@ -38,6 +44,7 @@
 
 
 .cdk-drag-preview {
+    overflow:visible;
     .tile-content{
     box-sizing:content-box;
     opacity: 0.8;

@@ -1,8 +1,8 @@
-import { Component, computed, input, Input, inject, signal} from '@angular/core';
+import { Component, computed, input, inject, signal} from '@angular/core';
 import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 import { TileManager } from '../tile-manager';
 import { OverlayModule } from '@angular/cdk/overlay';
-
+import { Tile } from '../tile';
 @Component({
   selector: 'expandable-tile',
   imports: [CdkDrag, CdkDragPlaceholder,OverlayModule],
@@ -12,11 +12,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 
 export class ExpandableTile{
-  public title = input<string>('');
-  @Input() id:number = 0;
+  tile = input.required<Tile>();
   tileManager = inject(TileManager);
   isOverlayVisible = signal(false);
-  isVisible = computed(() => this.title() === '');
+  isTileVisible = computed( () => this.tile().isVisible);
   innerWidth = this.tileManager.tileInnerSize; 
   innerHeight = this.innerWidth; //its a square lol
   tileWidth = this.tileManager.tileOuterSize;

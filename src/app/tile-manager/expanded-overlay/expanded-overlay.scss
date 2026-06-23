@@ -5,12 +5,24 @@
   display: grid;
   place-items: center;
   background: rgba(0, 0, 0, 0.35);
+
 }
 
 .card{
-    width: 90vw;
-    height: 90%;
-    background-color: skyblue;
-    border-radius: 16px;
+  width: 90vw;
+  height: 90%;
+  display: inline-flex;
+  background-color: skyblue;
+  border-radius: 16px;
+}
+
+.title{
+  width: 20%;
+}
+.close{
+  margin-left: auto;
+  height: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 

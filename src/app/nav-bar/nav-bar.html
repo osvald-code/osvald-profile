@@ -1,3 +1,21 @@
 <div class="nav-bar">
-    <p>nav-bar works!</p>
+    <button class = "start" (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+        Start
+    </button>
 </div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOpen]="isOpen"
+  (detach)="isOpen = false"
+>
+  <ul class="example-list">
+    @for (tile of tileManager.items(); track tile.id) {
+        @if(tile.isVisible){
+            <button (click)="this.tileManager.openOverlay(tile.id)">{{tile.title}}</button>
+        }
+    } 
+</ul>
+ 
+</ng-template>
