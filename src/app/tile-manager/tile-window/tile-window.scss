@@ -1,24 +1,21 @@
 :host{ 
-    //background-color: blue;
-    width: 100%;
-    height: 100%;
-    flex:1;
-    min-height: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  flex:1;
+  min-height: 0;
+  justify-content: center;
+  align-items: center;
   }
 .gridlist {
   display: block;
   padding: 0;
   margin: 0;
   //border: solid 10px #000;
-  border-radius: 4px;
   overflow:hidden;
   height:100%;
   width: 100%;
-  background-color: aqua;
+  background-color: #038387;
   justify-content: center;
   align-content: center;
-  box-sizing: border-box;
+  //box-sizing: border-box;
 }

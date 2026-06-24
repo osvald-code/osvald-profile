@@ -1,19 +1,20 @@
-<div class="nav-bar">
-    <button class = "start" (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+<nav class="nav-bar" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+    <button class = "start" (click)="isOpen = !isOpen" type="button">
         Start
     </button>
-</div>
+</nav>
 
 <ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="origin"
-  [cdkConnectedOverlayOpen]="isOpen"
-  (detach)="isOpen = false"
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="origin"
+    [cdkConnectedOverlayOpen]="isOpen"
+    (overlayOutsideClick)="isOpen = false"
+    (detach)="isOpen = false"
 >
-  <ul class="example-list">
+  <ul class="nav-list">
     @for (tile of tileManager.items(); track tile.id) {
         @if(tile.isVisible){
-            <button (click)="this.tileManager.openOverlay(tile.id)">{{tile.title}}</button>
+            <button class="item" (click)="selectItem(tile.id)">{{tile.title}}</button>
         }
     } 
 </ul>

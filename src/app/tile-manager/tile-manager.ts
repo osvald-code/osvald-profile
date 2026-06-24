@@ -13,9 +13,6 @@ export class TileManager{
   readonly tileInnerSize = `${TileManager.TILE_WIDTH}px`;
   readonly tileOuterSize =`${this.tileSize}px`
 
-  //.items:WritableSignal<Tile[]> = signal([]);
-
-
 
   width = signal(TileManager.TILE_WIDTH);
   height = signal(TileManager.TILE_WIDTH);
@@ -23,7 +20,7 @@ export class TileManager{
   columnTileCount = computed(() => Math.floor(this.width() / this.tileSize));
   rowTileCount = computed(() => Math.floor(this.height() / this.tileSize));
   sidePadding = computed(() => `${(this.width()-(this.columnTileCount()*TileManager.TILE_WIDTH))/2}px`);
-  openTile = new Tile();
+  openTile:Tile|undefined = new Tile();
   isOverlayVisible = signal(false);
 
   items = signal(
@@ -50,8 +47,8 @@ export class TileManager{
   ];
 
   openOverlay = (id:number):void => {
-    this.openTile = this.items()[id];
-    if(this.openTile.isVisible){
+    this.openTile = this.items().find(item => item.id === id);
+    if(this.openTile?.isVisible??false){
       this.isOverlayVisible.set(true)
     }
   };

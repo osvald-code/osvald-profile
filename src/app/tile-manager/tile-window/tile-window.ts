@@ -54,7 +54,12 @@ export class TileWindow implements AfterViewInit {
               );
             }
           }else{
-            return copy.slice(0, tileTotal); //TODO : fix tile with tile being removed
+            while (copy.length > tileTotal) {
+                const availableIndex = copy.findLastIndex(item => item.title==='');
+                if(availableIndex === -1) { return copy;}
+                copy.splice(availableIndex, 1);
+                return copy;
+            }
           }
           return copy;
         });

@@ -10,4 +10,9 @@ import { TileManager } from '../tile-manager/tile-manager';
 export class NavBar {
   tileManager = inject(TileManager);
   isOpen = false;
+
+  selectItem(id:number){
+    this.tileManager.openOverlay(id);
+    this.isOpen = false;
+  }
 }
