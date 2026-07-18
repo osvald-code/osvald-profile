@@ -49,9 +49,11 @@ export class TileWindow implements AfterViewInit {
           if(items.length < tileTotal){
             while (copy.length < tileTotal) {
               const i = copy.length;
-              copy.push(
-                new Tile(i,this.tileManager.startingTitles[i] ?? '')
-              );
+                if(this.tileManager.startingTiles[i]){
+                  copy.push(new Tile(i,this.tileManager.startingTiles[i].name,this.tileManager.startingTiles[i].icon));
+                }else{
+                  copy.push(new Tile(i));
+                }
             }
           }else{
             while (copy.length > tileTotal) {

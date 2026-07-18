@@ -3,33 +3,84 @@
     height: 100%;
     display: contents;
     margin:0;
-
 }
 
 .tile-content {
-    background-color: lightblue;
+    background-color: transparent;
+    //border-color: var(--primary-color);
+  
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    box-shadow:
-        0 5px 5px -3px rgba(55, 47, 47, 0.2),
-        0 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    //border-radius: 6px;
+    transition: transform 0.3s ease;
+    @starting-style {
+        transform: scale(1.3);
+    }
+
+    // box-shadow:
+    //     0 5px 5px -3px rgba(55, 47, 47, 0.2),
+    //     0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    //     0 3px 14px 2px rgba(0, 0, 0, 0.12);
     &.hidden-placeholder {
-        opacity: 0.7;
+        opacity: 0.4;
         background-color: lightpink;
         box-shadow: none;
     }  
 }
 
+@keyframes clockWise {
+  to {
+    rotate:1turn;
+  }
+}
+
+@keyframes counterClockWise {
+  to {
+    rotate:-1turn;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
 .tile-name{
-    position: relative;
+   position: relative;
     margin-top: 0;
     bottom: 16px;
 }
+.tile-decorator{
+    position:absolute;
+    border: thin solid lightblue;
+    opacity: 0;
+    //transition: transform 0.3s ease;
+}
+
+.reversed{
+    transform:rotate(45deg);
+    //transition: transform 0.6s ease;
+}
+
+@keyframes pulse{
+    0% { scale: 0.9; }
+    100% { scale: 1.2; }
+}
 
 .grid-button{
+    background-color: transparent;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -39,20 +90,43 @@
     border-radius: 6px;
 }
 .grid-button:hover {
-    background-color: deepskyblue;
+    // background-color: deepskyblue;
+    // border-radius: 50px;
+    .tile-content{ 
+        //transform: scale(1.3); //Grows to 130% of its size
+        animation: pulse 0.7s ease-in-out infinite alternate;
+    }
+    .tile-decorator{
+        opacity: 0.7;
+        animation: clockWise 3s linear infinite, pulse 3s ease-in-out infinite alternate, fadeIn 0.5s ease-in-out;
+    }
+    .reversed{
+        opacity: 0.7;
+        animation: counterClockWise 2s linear infinite, pulse 1s ease-in-out infinite alternate, fadeIn 0.5s ease-in-out;
+    }
 }
 
 
 .cdk-drag-preview {
     overflow:visible;
     .tile-content{
-    box-sizing:content-box;
-    opacity: 0.8;
-    box-shadow:
-        0 5px 5px -3px rgba(55, 47, 47, 0.2),
-        0 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        box-sizing:content-box;
+        opacity: 0.8;
+        scale: 1.3;
+        box-shadow:
+            0 5px 5px -3px rgba(19, 16, 16, 0.2),
+            0 8px 10px 1px rgba(0, 0, 0, 0.14),
+            0 3px 14px 2px rgba(0, 0, 0, 0.12);
     }
+    .tile-decorator{
+        opacity: 0.7;
+        animation: clockWise 2s linear infinite, pulse 3s ease-in-out infinite alternate, fadeIn 0.5s ease-in-out;
+    }
+    .reversed{
+        opacity: 0.7;
+        animation: counterClockWise 3s linear infinite, pulse 1s ease-in-out infinite alternate, fadeIn 0.5s ease-in-out;
+    }
+
 }
 
 //.grid-button.cdk-drag-animating {

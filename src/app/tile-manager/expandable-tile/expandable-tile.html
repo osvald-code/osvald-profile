@@ -6,12 +6,16 @@
     [style.max-height]="tileManager.tileOuterSize"
     (click)="tileManager.openOverlay(tile().id)";>
     <!-- this is the actual content of the tile -->
-    <div class="tile-content"
-        [style.width]="innerWidth" 
-        [style.height]="innerHeight" 
-        [style.margin]="tileManager.tileMargin">
-    </div>
-
+        
+        <div class ="tile-decorator" [style.width] = "tileManager.tileOuterSize" [style.height] = "tileManager.tileOuterSize"></div>
+        <div class ="tile-decorator reversed" [style.width] = "tileManager.tileOuterSize" [style.height] = "tileManager.tileOuterSize"></div>
+        <div class="tile-content"
+            [style.width]="innerWidth" 
+            [style.height]="innerHeight" 
+            [style.margin]="tileManager.tileMargin">  
+            <img src ={{tile().icon}}/>
+        </div>
+        <p class="tile-name">{{tile().title}}</p>
     <!-- this is the placeholder for the dragged element while it's dragged -->
     <div *cdkDragPlaceholder class="grid-button hidden-placeholder" 
         [style.max-height]="tileManager.tileOuterSize">
@@ -22,5 +26,5 @@
         </div>
         <p class="tile-name">{{tile().title}}</p>
     </div>
-    <p class="tile-name">{{tile().title}}</p>
+
 </div>

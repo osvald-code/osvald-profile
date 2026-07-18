@@ -4,7 +4,7 @@
     min-height: 48px;
     margin: 0;
     width: 100%;
-    background-color: lightgray;
+    background-color: var(--98-grey);
     box-sizing: border-box;
     flex: 0;
 }
@@ -23,20 +23,24 @@
         0 3px 14px 2px rgba(0, 0, 0, 0.12);
     width:10%;
     min-width: 128px;
-    border: solid 2px #000;
+    border: solid 1px var(--98-dark-grey);
     height: 100%;
 }
 
 .nav-list {
     height: 65dvh;
     width: 300px;
-    border: solid 1px #ccc;
-    border-radius: 5px;
+    //border: solid 1px var(--98-dark-grey);
+    border-radius: 0px;
     color: CanvasText;
     text-align: center;
     padding: 0;
     margin: 0;
-    background-color: #ccc;
+    background-color: var(--98-grey);
+    box-shadow:
+        0 5px 5px -3px rgba(55, 47, 47, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 .item{
     display: block;
@@ -45,5 +49,15 @@
     text-align: left;
     font-size: 100%;
     border-radius: 0;
-    border: none;
+    margin-bottom: 1px;
+    background-color: var(--98-grey);
+  //  border: solid 1px var(--98-dark-grey);
+    box-shadow:
+        0 5px 5px -3px rgba(55, 47, 47, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.item:hover{
+    background-color: var(--98-dark-grey);
 }

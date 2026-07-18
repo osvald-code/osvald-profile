@@ -8,16 +8,30 @@
 
 }
 
+
 .card{
   border-radius: 0;
   border: solid thick lightgray;
-  padding-top: 0;
-  width: 90vw;
+  padding:0;
+  width: 95dvw;
   height: 90%;
-  display: inline-flex;
   background-color: skyblue;
- 
-}s
+ // animation: floatUpDown 3s ease-in-out 2;
+}
+
+/* Animation Keyframes */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Negative moves it UP */
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
 
 h2{
   margin: 0;
@@ -41,5 +55,6 @@ h2{
   margin-left: auto;
   aspect-ratio: 1/1;
   height: 100%;
+  margin-right: 0;
 }
 

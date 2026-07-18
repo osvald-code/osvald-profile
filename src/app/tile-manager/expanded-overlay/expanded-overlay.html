@@ -1,6 +1,16 @@
 <div class="card">
     <div class="title-card">
+
         <h2 class="title">{{tileManager.openTile?.title}}</h2>
+
         <button class="close" (click)="tileManager.closeOverlay()">X</button>
     </div>
+    @switch (tileManager.openTile?.title) {
+        @case("About"){
+            <app-about-me></app-about-me>
+        }
+        @case("Astroprimsa Log"){
+            <app-astro-log></app-astro-log>
+        }
+    }
 </div>

@@ -1,6 +1,12 @@
 import { Injectable, signal, computed, WritableSignal } from '@angular/core';
 import { Tile } from './tile';
 
+
+  interface StartingTile{
+    name:string,
+    icon:string
+  };
+
 @Injectable({
   providedIn: 'root',
 })
@@ -24,10 +30,17 @@ export class TileManager{
   isOverlayVisible = signal(false);
 
   items = signal(
-    Array.from({ length: this.tileTotal() }, (_, i) => (
-      new Tile(i,this.startingTitles[i] ?? ''))
-    )
-  );
+  Array.from({ length: this.tileTotal() }, (_, i) => {
+    if (this.startingTiles[i]) {
+      return new Tile(
+        i,
+        this.startingTiles[i].name,
+        this.startingTiles[i].icon
+      );
+    }
+    return new Tile(i);
+  })
+);
 
   printOut = ():void => {
     console.log("width: ", this.width());
@@ -39,11 +52,12 @@ export class TileManager{
     console.log("Tile total: ", this.tileTotal());
   }
 
-  readonly startingTitles = [
-    "Home",
-    "Projects",
-    "About",
-    "Contact"
+
+  readonly startingTiles:StartingTile[] = [
+    {name:"Astroprimsa Log",icon:"program_manager-0.png"},
+    {name:"Projects",icon:"console_prompt-0.png"},
+    {name:"About",icon:"msagent-4.png"},
+    {name:"Contact",icon:"regedit_binary-0.png"},
   ];
 
   openOverlay = (id:number):void => {
