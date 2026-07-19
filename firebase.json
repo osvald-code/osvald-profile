@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "dist/osvald-profile/browser",
+    "site": "osvald-dev",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
