@@ -64,7 +64,7 @@
               "buildTarget": "osvald-profile:build:production"
             },
             "development": {
-              "host": "0.0.0.0",
+            
               "port": 4200,
               "buildTarget": "osvald-profile:build:development"
             }

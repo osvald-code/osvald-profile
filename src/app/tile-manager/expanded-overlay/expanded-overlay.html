@@ -5,12 +5,14 @@
 
         <button class="close" (click)="tileManager.closeOverlay()">X</button>
     </div>
-    @switch (tileManager.openTile?.title) {
-        @case("About"){
-            <app-about-me></app-about-me>
+    <div class = "body-card">
+        @switch (tileManager.openTile?.title) {
+            @case("About"){
+                <app-about-me></app-about-me>
+            }
+            @case("Astroprimsa Log"){
+                <app-astro-log></app-astro-log>
+            }
         }
-        @case("Astroprimsa Log"){
-            <app-astro-log></app-astro-log>
-        }
-    }
+    </div>
 </div>

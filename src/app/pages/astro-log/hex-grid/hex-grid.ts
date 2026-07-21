@@ -8,5 +8,6 @@ import { Hexagon } from "./hexagon/hexagon";
   styleUrl: './hex-grid.scss',
 })
 export class HexGrid {
-
+  
 }
+
