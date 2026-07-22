@@ -15,7 +15,7 @@
             [style.margin]="tileManager.tileMargin">  
             <img src ={{tile().icon}}/>
         </div>
-        <p class="tile-name">{{tile().title}}</p>
+        <p [style.max-width]="tileManager.tileOuterSize" class="tile-name">{{tile().title}}</p>
     <!-- this is the placeholder for the dragged element while it's dragged -->
     <div *cdkDragPlaceholder class="grid-button hidden-placeholder" 
         [style.max-height]="tileManager.tileOuterSize">
@@ -24,7 +24,7 @@
             [style.height]="innerHeight" 
             [style.margin]="tileManager.tileMargin" >
         </div>
-        <p class="tile-name">{{tile().title}}</p>
+        <p [style.max-width]="tileManager.tileOuterSize" class="tile-name">{{tile().title}}</p>
     </div>
 
 </div>

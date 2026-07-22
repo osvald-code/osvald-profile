@@ -12,8 +12,8 @@ export class AboutMe {
 
   showCursor = signal("|");
   textToPrint = `a self-portrait, an artist refines their skills while capturing their most detailed imperfections.
-  my reflection in the black screen, i hone my craft - not simply as a way to earn a living - but as a way to chisel my self-expression out of the noise of the modern age.
-  past my own expectations and without organizational and cultural cobwebs, i journey here simply for myself.
+  $my reflection in the black screen, i hone my craft - not simply as a way to earn a living - but as a way to chisel my self-expression out of the noise of the modern age.
+  $past my own expectations and without organizational and cultural cobwebs, i journey here simply for myself.
   
   ...anyways...
   my name is osvald. i'm currently a software developer based out of ontario, canada. 

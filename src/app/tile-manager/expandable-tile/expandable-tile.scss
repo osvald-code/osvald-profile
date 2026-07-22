@@ -58,9 +58,12 @@ img{
 }
 
 .tile-name{
-   position: relative;
-    margin-top: 0;
+    position: relative;
+    overflow-wrap: break-word;
+    width:100%;
+    margin: 0;
     bottom: 16px;
+    text-align: center;
 }
 .tile-decorator{
     position:absolute;
