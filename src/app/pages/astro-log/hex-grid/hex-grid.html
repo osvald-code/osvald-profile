@@ -1,3 +1,4 @@
-<p>hex-grid works!</p>
 
-<app-hexagon></app-hexagon>
+@for(hexagon of this.hexModels; track hexagon.id){
+    <app-hexagon [style.left.px] = hexagon.x() [style.top.px] = hexagon.y() [model] = hexagon></app-hexagon>
+}

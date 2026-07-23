@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { HexModel } from './hex-model';
 
 @Component({
   selector: 'app-hexagon',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './hexagon.scss',
 })
 export class Hexagon {
-
+  @Input() model!:HexModel;
 }
