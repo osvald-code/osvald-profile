@@ -1,2 +1,19 @@
-<p>astro-log works!</p>
-<app-hex-grid></app-hex-grid>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+  
+    <button (click)="showFiller.set(!showFiller())" matButton="elevated">
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" matButton (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+
+</mat-drawer-container>
+  @if (showFiller()) {
+      <app-hex-grid></app-hex-grid>
+    }
