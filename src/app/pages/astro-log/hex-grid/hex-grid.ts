@@ -9,7 +9,6 @@ interface HexData{
   r:number
 }
 
-
 @Component({
   selector: 'app-hex-grid',
   imports: [Hexagon],
