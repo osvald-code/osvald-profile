@@ -1,21 +1,21 @@
-  <h1>Coming soon!</h1>
-  <app-hex-grid></app-hex-grid>
-<!-- <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-  
-    <button (click)="showFiller.set(!showFiller())" matButton="elevated">
-      Toggle extra text
-    </button>
+
+<mat-drawer-container class="drawer-container" autosize>
+  <mat-drawer #drawer class="drawer-sidenav" mode="side">
+    @for(viewItem of viewData; track viewItem.view ){
+      <button class="nav-item" (click)="selectView(viewItem.view)">
+        <h2>>_:pilot_apps/{{viewItem.name}}</h2>
+      </button>
+    }
   </mat-drawer>
 
-  <div class="example-sidenav-content">
+  <div class="sidenav-content">
     <button type="button" matButton (click)="drawer.toggle()">
-      Toggle sidenav
+      <
     </button>
   </div>
-
 </mat-drawer-container>
-  @if (showFiller()) {
-    
-    } -->
+@switch(selectedView()){
+  @case(VIEW.Hexgrid){
+      <app-hex-grid/>
+  }
+}

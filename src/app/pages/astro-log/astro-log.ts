@@ -1,7 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewChild, } from '@angular/core';
 import { HexGrid } from './hex-grid/hex-grid';
 import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDrawer, MatSidenavModule} from '@angular/material/sidenav';
+
+enum View {
+  Hexgrid,
+  Character
+}
+
+interface ViewData {
+  name:string,
+  view:View
+}
 
 @Component({
   selector: 'app-astro-log',
@@ -10,5 +20,18 @@ import {MatSidenavModule} from '@angular/material/sidenav';
   styleUrl: './astro-log.scss',
 })
 export class AstroLog {
-  showFiller = signal(false);
+  showNav = signal(false);
+  selectedView = signal<View>(View.Character);
+  VIEW = View;
+
+  viewData:ViewData[] = [
+    {name:"Planets", view:View.Hexgrid},
+    {name:"Character", view:View.Character}
+  ];
+
+  @ViewChild('drawer') drawer: MatDrawer | null = null;
+  selectView(view:View){
+    this.selectedView.set(view);
+    this.drawer!.toggle(); 
+  }
 }
