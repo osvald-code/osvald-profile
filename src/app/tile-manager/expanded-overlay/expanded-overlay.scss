@@ -14,7 +14,7 @@
   padding:0;
   width: 95dvw;
   height: 90%;
-  background-color: skyblue;
+  background-color: var(--bg-color);
   display:block;
   //flex-direction: column;
  // animation: floatUpDown 3s ease-in-out 2;
@@ -69,5 +69,6 @@ h2{
   aspect-ratio: 1/1;
   height: 100%;
   margin-right: 0;
+  background-color: var(--c-purple);
 }
 

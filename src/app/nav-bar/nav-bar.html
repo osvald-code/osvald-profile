@@ -1,6 +1,6 @@
 <nav class="nav-bar" cdkOverlayOrigin #origin="cdkOverlayOrigin">
     <button class = "start" (click)="isOpen = !isOpen" type="button">
-        Start
+        <h3>Start</h3>
     </button>
 </nav>
 
@@ -14,7 +14,10 @@
   <ul class="nav-list">
     @for (tile of tileManager.items(); track tile.id) {
         @if(tile.isVisible){
-            <button class="item" (click)="selectItem(tile.id)">{{tile.title}}</button>
+            <button class="item" (click)="selectItem(tile.id)">
+                 <img src ={{tile.icon}}/>
+                 {{tile.title}}
+            </button>
         }
     } 
 </ul>

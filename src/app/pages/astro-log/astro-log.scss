@@ -1,7 +1,7 @@
 :host{
     width:100%;
     height:100%;
-    background-color:blue;
+    background-color:var(--bg-color);
     display:grid;
     grid-template-columns: max-content 1fr;
     //overflow: hidden;
@@ -9,7 +9,7 @@
 
 .nav-item{
     width: 100%;
-    //background-color: purple;
+    background-color: var(--c-midtones);
     border: none;
     text-align: left;
     :hover{
@@ -17,6 +17,16 @@
     }
     text-transform: uppercase;
 }
+
+.sidenav-close{
+  border-radius: 0;
+  border-color: var(--c-soft-accent);
+  background-color: inherit;
+  color: var(--text-color);
+  height: 5%;
+  width:32px
+}
+
 
 .sidenav-content {
   display: flex;
@@ -29,10 +39,10 @@
     width: fit-content;
     min-width: 5%;
     height: 100%;
-    //background-color: green;
+    background-color:var(--c-purple);
 }
 .drawer-sidenav{
     border-radius: 0;
-    //background-color: red;
+    background-color:var(--c-purple);
     display:block;
 }
