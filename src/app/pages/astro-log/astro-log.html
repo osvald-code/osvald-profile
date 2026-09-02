@@ -9,13 +9,21 @@
   </mat-drawer>
 
   <div class="sidenav-content">
-    <button class="sidenav-close" (click)="drawer.toggle()">
-      <
+    <button class="sidenav-close" (click)="showDrawer()">
+      @if(showNav()){
+        <h1><</h1>
+      }@else{
+        <h1>></h1>
+      }
+
     </button>
   </div>
 </mat-drawer-container>
 @switch(selectedView()){
   @case(VIEW.Hexgrid){
       <app-hex-grid/>
+  }
+  @case(VIEW.Character){
+    <app-player-sheet></app-player-sheet>
   }
 }

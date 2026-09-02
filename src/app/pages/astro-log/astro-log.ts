@@ -2,6 +2,7 @@ import { Component, signal, ViewChild, } from '@angular/core';
 import { HexGrid } from './hex-grid/hex-grid';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDrawer, MatSidenavModule} from '@angular/material/sidenav';
+import { PlayerSheet } from "./player-sheet/player-sheet";
 
 enum View {
   Hexgrid,
@@ -15,7 +16,7 @@ interface ViewData {
 
 @Component({
   selector: 'app-astro-log',
-  imports: [HexGrid, MatSidenavModule, MatButtonModule],
+  imports: [HexGrid, MatSidenavModule, MatButtonModule, PlayerSheet],
   templateUrl: './astro-log.html',
   styleUrl: './astro-log.scss',
 })
@@ -32,6 +33,11 @@ export class AstroLog {
   @ViewChild('drawer') drawer: MatDrawer | null = null;
   selectView(view:View){
     this.selectedView.set(view);
-    this.drawer!.toggle(); 
+    this.showDrawer();
+  }
+
+  showDrawer(){
+    this.drawer?.toggle();
+    this.showNav.update(val =>!val);
   }
 }

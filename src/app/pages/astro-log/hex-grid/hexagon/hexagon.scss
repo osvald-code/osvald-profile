@@ -27,6 +27,9 @@
     clip-path: polygon(25% 6.5%, 0% 50%, 25% 93.5%, 75% 93.5%, 100% 50%, 75% 6.5%);
     width:95%;
     height:95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: aqua;
   
 }
@@ -43,8 +46,9 @@
     }
 }
 
-p{
+h2{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--c-deeppurple);
 }

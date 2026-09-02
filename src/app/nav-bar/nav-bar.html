@@ -15,8 +15,7 @@
     @for (tile of tileManager.items(); track tile.id) {
         @if(tile.isVisible){
             <button class="item" (click)="selectItem(tile.id)">
-                 <img src ={{tile.icon}}/>
-                 {{tile.title}}
+                 <h3><img src ={{tile.icon}}/>{{tile.title}}</h3>
             </button>
         }
     } 

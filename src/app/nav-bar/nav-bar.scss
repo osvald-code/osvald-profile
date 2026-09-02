@@ -18,37 +18,59 @@
     padding: 5px 5px 5px 5px;
     box-sizing: border-box;
     box-shadow:
-        0 0px 21px  var(--c-accent),
-        0 0px 13px  var(--c-accent),
-        0 0px 8px  var(--c-accent),
-        0 0px 5px var(--c-highlight),
+        0 0px 55px  var(--c-accent),
+        0 0px 28px  var(--c-accent),
+        0 0px 5px  var(--c-accent),
+        0 0px 3px var(--c-highlight),
         inset 0 0px 5px -1px var(--c-highlight)
     ;
-;
+   // animation: fadeIn 1s ease-in-out infinite alternate;
 }
 
 .start{
     display: flex;
     background-color: var(--c-purpleblack);
     border: solid thin var(--c-midtones);
-    // box-shadow:
-    //     0 0px 8px  var(--c-accent),
-    //     0 0px 5px  var(--c-accent),
-    //     0 0px 3px  var(--c-accent),
-    //     0 0px 2px var(--c-highlight),
-    //     inset 0 0px 1px var(--c-highlight)
-    // ;
+     // box-shadow:
+        //0 0px 28px  var(--c-accent),
+       // 0 0px 21px  var(--c-accent),
+        //0 0px 5px  var(--c-accent),
+      //  0 0px 3px var(--c-highlight),
+       // inset 0 0px 5px -1px var(--c-highlight)
+    //;
+    filter:drop-shadow(0px 0px 8px var(--c-accent));
     width:10%;
     min-width: 128px;
     height: 80%;
     text-align: center;
     justify-content: center;
     align-items: center;
-  
 }
 
 .start:hover{
-    background-color: var(--c-accent);
+   // background-color: var(--c-accent);
+     filter:none;
+}
+
+@keyframes fadeIn {
+  from {
+      box-shadow:
+        0 0px 55px  var(--c-accent),
+        0 0px 28px  var(--c-accent),
+        0 0px 5px  var(--c-accent),
+        0 0px 3px var(--c-highlight),
+        inset 0 0px 5px -1px var(--c-highlight)
+    ;
+  }
+  to {
+      box-shadow:
+        0 0px 8px  var(--c-accent),
+        0 0px 5px  var(--c-accent),
+        0 0px 3px  var(--c-accent),
+        0 0px 2px var(--c-highlight),
+        inset 0 0px 5px -1px var(--c-highlight)
+    ;
+  }
 }
 
 .nav-list {
@@ -60,7 +82,7 @@
     text-align: center;
     padding: 0;
     margin: 0;
-    background-color: var(--c-midtones);
+    background-color: var(--c-purpleblack);
     box-shadow:
         0 5px 5px -3px rgba(55, 47, 47, 0.2),
         0 8px 10px 1px rgba(0, 0, 0, 0.14),
@@ -74,7 +96,7 @@
     font-size: 100%;
     border-radius: 0;
     //margin-bottom: 1px;
-    background-color: var(--c-midtones);
+    background-color: var(--c-purpleblack);
     border: none;
   //  border: solid 1px var(--98-dark-grey);
     // box-shadow:
@@ -84,5 +106,5 @@
 }
 
 .item:hover{
-    background-color: var(--c-accent);
+    background-color: var(--c-midtones);
 }

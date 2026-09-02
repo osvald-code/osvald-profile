@@ -1,10 +1,11 @@
 :host{
     width:100%;
     height:100%;
-    background-color:var(--bg-color);
+    background-color:var(--c-purpleblack);
     display:grid;
     grid-template-columns: max-content 1fr;
-    //overflow: hidden;
+    overflow: hidden;
+    
 }
 
 .nav-item{
@@ -19,19 +20,22 @@
 }
 
 .sidenav-close{
-  border-radius: 0;
-  border-color: var(--c-soft-accent);
+  //border-radius: 0;
+  border: none;
   background-color: inherit;
   color: var(--text-color);
-  height: 5%;
-  width:32px
+  display: flex;
+  width:32px;
+
 }
 
 
 .sidenav-content {
   display: flex;
   height: 100%;
-  //background-color: pink;
+      :hover{
+        background-color:var(--c-midtones)
+    }
 }
 
 .drawer-container{
@@ -43,6 +47,6 @@
 }
 .drawer-sidenav{
     border-radius: 0;
-    background-color:var(--c-purple);
+    background-color:var(--c-midtones);
     display:block;
 }
