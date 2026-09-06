@@ -9,6 +9,7 @@ export interface PlayerData{
     armor:number;
     exp:number;
     hyperdrive:number;
+    energy:number;
     favor:Factions;
     stats:Stat[];
     status:Status[];
@@ -17,10 +18,28 @@ export interface PlayerData{
 }
 
 export enum StatType {
-   VIGOR,
-   GRACE,
-   MIND,
-   TECH
+   VIG = "Vigor",
+   GRA = "Grace",
+   MIN = "Mind",
+   TEC = "Tech"
+}
+
+export enum FactionType{
+    WARG = "W.A.R.G.",
+    MEDUSA = "Medusa",
+    ISF = "I.S.F",
+    CORSAIR = "Corsair",
+    SYNTH = "Synth"
+}
+
+export enum StatusType{
+    STUN = "Stun",
+    BREACH = "Breach",
+    SHOCK = "Shock",
+    SILENCE = "Silence",
+    IMMUNITY = "Immunity",
+    OVERHEAT = "Overheat"
+
 }
 
 export interface Stat{
@@ -42,12 +61,12 @@ export interface Implant{
 }
 
 export type CyberTech = [
-    Implant?,
-    Implant?,
-    Implant?,
-    Implant?,
-    Implant?,
-    Implant?
+    Implant|null,
+    Implant|null,
+    Implant|null,
+    Implant|null,
+    Implant|null,
+    Implant|null
 ]
 
 export interface Faction{

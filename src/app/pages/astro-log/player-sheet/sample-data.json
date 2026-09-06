@@ -1,5 +1,19 @@
 { 
     "name": "yui", 
     "origin": {
-        name:'glitchblade'
-    }}, "memorySlots": [], "weapons": [], "inventory": [], "notes": "", "health": 0, "armor": 0, "exp": 0, "hyperdrive": 0, "favor": [], "stats": [], "status": [], "cyberTech": [], "serum": 0 }
+        "name":"glitchblade"
+    }, 
+    "memorySlots": [],
+    "weapons": [],
+    "inventory": [],
+    "notes": "",
+    "health": 0,
+    "armor": 0,
+    "exp": 0,
+    "hyperdrive": 0,
+    "favor": [],
+    "stats": [],
+    "status": [],
+    "cyberTech": [],
+    "serum": 0 
+}

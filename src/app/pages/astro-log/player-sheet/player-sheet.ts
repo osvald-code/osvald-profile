@@ -1,23 +1,27 @@
 import { Component, signal } from '@angular/core';
 import PlayerModel from './player-model';
-import { Origin, Stat, StatType } from './player-data';
-import { JsonPipe } from '@angular/common';
+import { Origin, PlayerData, Stat, StatType, FactionType, CyberTech, StatusType} from './player-data';
+import { JsonPipe, KeyValuePipe } from '@angular/common';
 import { disabled, form, FormField } from '@angular/forms/signals';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatListModule } from '@angular/material/list';
 @Component({
   selector: 'app-player-sheet',
-  imports: [JsonPipe, FormField],
+  imports: [JsonPipe, KeyValuePipe, FormField, MatButtonToggleModule,MatFormFieldModule, MatInputModule, MatSelectModule,MatListModule],
   templateUrl: './player-sheet.html',
   styleUrl: './player-sheet.scss',
 })
 export class PlayerSheet {
-  playerModel = signal<PlayerModel>(
-    new PlayerModel(
-      "yui", {statBoosts:[{statType:StatType.GRACE,value:0}]}
-    ));
-  
+  playerModel = signal(new PlayerModel("yui", {statBoosts:[{statType:StatType.GRA,value:0}]}));  
+  FactionType = FactionType;
+  StatType = StatType;
+  StatusType = StatusType;
   playerSheet = form(this.playerModel, (schemaPath) => {
-    disabled(schemaPath.name)
+    //disabled(schemaPath.name)
+    //this.playerModel().name = this.playerData().name;
   });
 
 }

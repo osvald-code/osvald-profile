@@ -4,6 +4,7 @@
   z-index: 1000;
   display: grid;
   place-items: center;
+  height: 100dvh;
   background-color: rgba(0, 0, 0, 0.35);
 }
 
@@ -16,6 +17,7 @@
   height: 90%;
   background-color: var(--bg-color);
   display:block;
+  overflow: auto;
   //flex-direction: column;
  // animation: floatUpDown 3s ease-in-out 2;
 }

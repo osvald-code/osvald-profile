@@ -1,4 +1,124 @@
 <form>
-    <input type="text" [formField]="playerSheet.name"/>
+   <section>
+    <mat-form-field>
+        <mat-label>
+            Health:
+        </mat-label>
+        <input matInput type="number" [formField]="playerSheet.health"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Armor:
+        </mat-label>
+        <input matInput type="number" [formField]="playerSheet.armor"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Exp:
+        </mat-label>
+        <input matInput type="number" [formField]="playerSheet.exp"/>
+    </mat-form-field>    
+        <mat-form-field>
+        <mat-label>
+            Energy:
+        </mat-label>
+        <input matInput type="number" [formField]="playerSheet.energy">
+    </mat-form-field> 
+    </section>
+    <section>          
+        <mat-form-field>
+            <mat-label>
+                Hyperdrive:
+        </mat-label>
+        <input matInput type="number" [formField]="playerSheet.hyperdrive">
+        </mat-form-field> 
+    </section>
+    <section>
+        <mat-label>
+                Favor:
+        </mat-label>
+        <div>
+            @for(faction of FactionType | keyvalue; track faction.key ){
+                <mat-form-field>
+                    <mat-label>
+                        {{faction.value}}
+                    </mat-label>
+                    <input matInput type="number"/>
+                </mat-form-field> 
+            }
+            <mat-form-field>
+                    <mat-label>
+                        Serum
+                    </mat-label>
+                    <input matInput type="number" [formField]="playerSheet.serum"/>
+                </mat-form-field> 
+        </div>
+    </section>
+    <section class="stat-tech">
+        <mat-list>
+        @for(stat of StatType | keyvalue; track stat.key ){
+            <div>
+                <mat-form-field>
+                    <mat-label>
+                        {{stat.value}}
+                    </mat-label>
+                    <input matInput type="number"/>
+                </mat-form-field> 
+            </div>
+        }
+    </mat-list>
+          
+            <mat-list>
+            <mat-label>
+                CyberTech
+            </mat-label>
+            @for(cyberTech of playerModel().cyberTech; track cyberTech){
+                <div>
+                   
+                    <mat-form-field>
+                         <mat-list-item>
+                    <mat-select>
+                        <mat-option>{{null}}</mat-option>
+                        <mat-option value="one">First option</mat-option>
+                        <mat-option value="two">Second option</mat-option>
+                        
+                    </mat-select>
+                    </mat-list-item> 
+                    </mat-form-field>
+                </div>
+            }
+            </mat-list>
+    </section>
+    <section>
+        <mat-button-toggle-group 
+            [formField]="playerSheet.status"
+            [hideMultipleSelectionIndicator]="true"
+            multiple
+        >
+        @for(status of StatusType | keyvalue; track status.key ){
+                <mat-button-toggle [value] = "status.value">
+                    {{status.value}}
+                </mat-button-toggle>
+        }
+        </mat-button-toggle-group>
+    </section>
+    <section>
+    <mat-form-field>
+        <mat-label>
+            Name:
+        </mat-label>
+        <input matInput type="text" [formField]="playerSheet.name"/>
+    </mat-form-field>
+    <mat-form-field>
+         <mat-label>
+                Origin:
+            </mat-label>
+        <mat-select>
+            <mat-option>{{null}}</mat-option>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+            </mat-select>
+    </mat-form-field>
+</section>
 </form>
 <p>player-sheet:{{this.playerModel() | json }}</p>
