@@ -1,4 +1,4 @@
-import { Component} from '@angular/core'
+import { Component, ChangeDetectionStrategy } from '@angular/core'
 import { RouterOutlet } from '@angular/router';
 import { TileWindow } from './tile-manager/tile-window/tile-window';
 import { NavBar } from "./nav-bar/nav-bar";
@@ -7,6 +7,7 @@ import { NavBar } from "./nav-bar/nav-bar";
   selector: 'app-root',
   imports: [RouterOutlet, TileWindow, NavBar],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.scss',
 })
 export class App {

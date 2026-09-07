@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import PlayerModel from './player-model';
 import { Origin, PlayerData, Stat, StatType, FactionType, CyberTech, StatusType} from './player-data';
 import { JsonPipe, KeyValuePipe } from '@angular/common';
@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
   selector: 'app-player-sheet',
   imports: [JsonPipe, KeyValuePipe, FormField, MatButtonToggleModule,MatFormFieldModule, MatInputModule, MatSelectModule,MatListModule],
   templateUrl: './player-sheet.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './player-sheet.scss',
 })
 export class PlayerSheet {

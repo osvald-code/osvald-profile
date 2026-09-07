@@ -1,4 +1,4 @@
-import { afterNextRender, Component, computed, ElementRef, inject, OnDestroy, signal } from '@angular/core';
+import { afterNextRender, Component, computed, ElementRef, inject, OnDestroy, signal, ChangeDetectionStrategy } from '@angular/core';
 import { Hexagon } from "./hexagon/hexagon";
 import { HexModel } from './hexagon/hex-model';
 import { O } from '@angular/cdk/keycodes';
@@ -13,6 +13,7 @@ interface HexData{
   selector: 'app-hex-grid',
   imports: [Hexagon],
   templateUrl: './hex-grid.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './hex-grid.scss',
 })
 export class HexGrid implements OnDestroy {

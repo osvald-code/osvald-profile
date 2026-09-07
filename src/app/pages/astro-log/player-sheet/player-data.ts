@@ -75,11 +75,11 @@ export interface Faction{
 }
 
 export type Factions = [
-    Faction?,
-    Faction?,
-    Faction?,
-    Faction?,
-    Faction?
+    Faction,
+    Faction,
+    Faction,
+    Faction,
+    Faction
 ]
 
 

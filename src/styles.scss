@@ -40,6 +40,7 @@ body {
   --c-purple:#b193d4;
   --c-pink:#e673a0;
   --c-purpleblack: #211a29;
+  --c-green:rgb(41, 154, 43);
 
   --c-deeppurple: #2a1240;
   --c-vibrantpurple: #5a2ca0;
@@ -79,7 +80,7 @@ html,body{
   height: 100%;
   margin: 0;
   overflow: hidden;
-  font-family: 'MSW98';
+  font-family: 'DOS';
   display:block;
   color:var(--text-color);
 }
@@ -171,4 +172,23 @@ textarea {
   src: url('./assets/fonts/MSW98UI-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'DOS';
+  src: url('./assets/fonts/Px437_IBM_ISO9.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.astro-form {
+  font-family: "Sixtyfour", sans-serif;
+  color: var(--c-green);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 10,
+    "SCAN" -53,
 }

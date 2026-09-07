@@ -3,14 +3,42 @@
 :host{
     display: block;
     width: 100%;
+    max-width: 100%;
     overflow: auto;
     background-color: var(--c-black);
 }
 
-.stat-tech{
-    display:inline-flex;
+.stat{
+    display:flex;
+}
+
+.general-stats{
+    display: flex;
+    max-width: 100%;
+}
+
+.favor-stats{
+    display: flex;
+    width: 50%;
+}
+
+.stats-tech{
+    display: flex;
+}
+.cybertech{
+   margin-left: 10%;
+}
+
+input{
+    color:inherit;
+    background-color: inherit;
+    border: none;
+    font: inherit;
+    field-sizing: content;
+    appearance: textfield;
 }
 
 section{
     height: 100%;
+    border: thick solid green;
 }

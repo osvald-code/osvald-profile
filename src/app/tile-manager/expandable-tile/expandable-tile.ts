@@ -1,4 +1,4 @@
-import { Component, computed, input, inject, signal} from '@angular/core';
+import { Component, computed, input, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import {CdkDrag, CdkDragPlaceholder} from '@angular/cdk/drag-drop';
 import { TileManager } from '../tile-manager';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -7,6 +7,7 @@ import { Tile } from '../tile';
   selector: 'expandable-tile',
   imports: [CdkDrag, CdkDragPlaceholder,OverlayModule],
   templateUrl: './expandable-tile.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './expandable-tile.scss',
 })
 

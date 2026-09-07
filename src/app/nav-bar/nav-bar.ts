@@ -1,10 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { TileManager } from '../tile-manager/tile-manager';
 @Component({
   selector: 'app-nav-bar',
   imports: [OverlayModule],
   templateUrl: './nav-bar.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './nav-bar.scss',
 })
 export class NavBar {

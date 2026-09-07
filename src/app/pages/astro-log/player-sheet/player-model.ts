@@ -1,4 +1,4 @@
-import { PlayerData, Hack, Drone, Weapon, Item, Faction, Stat, Status, CyberTech, Origin, MemorySlots, Factions, Implant } from "./player-data";
+import { PlayerData, Hack, Drone, Weapon, Item, Faction, Stat, Status, CyberTech, Origin, MemorySlots, Factions, Implant, FactionType, StatType } from "./player-data";
 
 
 export default class PlayerModel implements PlayerData{
@@ -11,8 +11,8 @@ export default class PlayerModel implements PlayerData{
     exp: number = 0;
     hyperdrive: number = 0;
     energy: number = 0;
-    favor: Factions = [];
-    stats: Stat[] = [];
+    favor: Factions = Object.values(FactionType).map(value => ({name:value, favor:0} as Faction)) as Factions;
+    stats: Stat[] = Object.values(StatType).map(value => ({statType:value, value:0} as Stat));
     status: Status[] = [];
     cyberTech: CyberTech = [null,null,null,null,null,null]
     serum: number = 0; 

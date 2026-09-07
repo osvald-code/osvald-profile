@@ -1,4 +1,4 @@
-import { Component, signal, inject, computed, HostListener, effect, InputSignal, ElementRef, WritableSignal, AfterViewInit} from '@angular/core';
+import { Component, signal, inject, computed, HostListener, effect, InputSignal, ElementRef, WritableSignal, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { ExpandableTile } from '../expandable-tile/expandable-tile';
 import { CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
 import { TileManager } from '../tile-manager';
@@ -11,6 +11,7 @@ import { ExpandedOverlay } from '../expanded-overlay/expanded-overlay';
   },
   imports: [ExpandableTile, CdkDropList, ExpandedOverlay],
   templateUrl: './tile-window.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './tile-window.scss',
 })
 

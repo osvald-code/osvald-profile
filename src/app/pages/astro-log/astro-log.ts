@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, } from '@angular/core';
+import { Component, signal, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { HexGrid } from './hex-grid/hex-grid';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDrawer, MatSidenavModule} from '@angular/material/sidenav';
@@ -18,6 +18,7 @@ interface ViewData {
   selector: 'app-astro-log',
   imports: [HexGrid, MatSidenavModule, MatButtonModule, PlayerSheet],
   templateUrl: './astro-log.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './astro-log.scss',
 })
 export class AstroLog {

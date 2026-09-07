@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { HexModel } from './hex-model';
 
 @Component({
   selector: 'app-hexagon',
   imports: [],
   templateUrl: './hexagon.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './hexagon.scss',
 })
 export class Hexagon {

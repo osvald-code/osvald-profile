@@ -1,4 +1,4 @@
-import {Component, DestroyRef, HostListener, inject, signal } from '@angular/core';
+import {Component, DestroyRef, HostListener, inject, signal, ChangeDetectionStrategy} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { interval, take, map } from 'rxjs';
 import { CdkScrollable } from '@angular/cdk/scrolling';
@@ -6,6 +6,7 @@ import { CdkScrollable } from '@angular/cdk/scrolling';
   selector: 'app-about-me',
   imports: [CdkScrollable],
   templateUrl: './about-me.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './about-me.scss',
 })
 export class AboutMe {
