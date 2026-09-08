@@ -24,6 +24,11 @@ export enum StatType {
    TEC = "Tech"
 }
 
+export interface Roll{
+    rolls:number,
+    size:number
+}
+
 export enum FactionType{
     WARG = "W.A.R.G.",
     MEDUSA = "Medusa",
@@ -49,11 +54,13 @@ export interface Stat{
 
 
 export interface Origin{
+    name:string;
     statBoosts:Stat[];
 }
 
 export interface Status{
     name:string;
+    isActive:boolean;
 }
 
 export interface Implant{
@@ -95,16 +102,16 @@ export interface Drone extends Item{}
 export type MemorySlotItem = Hack | Drone;
 
 export type MemorySlots = [
-    MemorySlotItem?,
-    MemorySlotItem?,
-    MemorySlotItem?,
-    MemorySlotItem?,
-    MemorySlotItem?,
-    MemorySlotItem?
+    MemorySlotItem|null,
+    MemorySlotItem|null,
+    MemorySlotItem|null,
+    MemorySlotItem|null,
+    MemorySlotItem|null,
+    MemorySlotItem|null
 ];
 
 export interface Weapon extends Item {
-    damage:number;
+    damage:Roll;
     modifierType:StatType;
     modifier:number;
 }

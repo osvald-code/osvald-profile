@@ -42,3 +42,25 @@ section{
     height: 100%;
     border: thick solid green;
 }
+
+[ngListbox] {
+  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+[ngOption] {
+
+  cursor: pointer;
+  padding: 0.3rem 1rem;
+  border: 1px solid var(--hot-pink);
+}
+
+[ngOption]:focus {
+    background-color: green;
+    color: black;
+}
+
+[ngOption]:hover {
+  background-color: pink;
+}

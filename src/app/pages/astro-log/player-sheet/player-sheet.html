@@ -58,50 +58,59 @@
         </h3>
         @for(cyberTech of playerModel().cyberTech; track cyberTech){
             <div>
-                
-                <mat-list-item>
-                <mat-select>
-                    <mat-option>None</mat-option>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                    
-                </mat-select>
-                </mat-list-item> 
-                
+                <h3>-</h3>
             </div>
         }
         </mat-list>
 </section>
     <section>
-        <mat-button-toggle-group 
-            [formField]="playerSheet.status"
-            [hideMultipleSelectionIndicator]="true"
-            multiple
-        >
-        @for(status of StatusType | keyvalue; track status.key ){
-                <mat-button-toggle [value] = "status.value">
-                    {{status.value}}
-                </mat-button-toggle>
-        }
-        </mat-button-toggle-group>
+        <div 
+            ngListbox 
+            aria-label="Status" 
+            orientation="horizontal" 
+            selectionMode="explicit" 
+            multi>
+            @for (status of playerModel().status; track status) {
+                <div ngOption  [value]="status.name" [label]="status.name">
+                    <span class="option-label">{{ status.name }}</span>
+                </div>
+            }
+        </div>
     </section>
     <section>
-    
         <h3>
             Name:
+            <input matInput type="text" [formField]="playerSheet.name"/>
         </h3>
-        <input matInput type="text" [formField]="playerSheet.name"/>
-    
-    
-         <h3>
-                Origin:
-            </h3>
-        <mat-select>
-            <mat-option>{{null}}</mat-option>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-        </mat-select>
-    
-</section>
+        <h3>
+            Origin:
+            <input type="text" [formField]="playerSheet.origin.name"/>
+        </h3>
+    </section>
+    <section>
+        <table
+            ngGrid
+            [enableSelection]="true"
+            [selectionMode]="'explicit'"
+            [multi]="true"
+            [focusMode]="'roving'"
+        >
+        @for(memorySlot of playerModel().memorySlots; track memorySlot){
+            <tr ngGridRow>
+                <th>mem:</th>
+                <td ngGridCell>{{memorySlot?.name}}</td>
+            </tr>
+        }
+        </table>
+    </section>
+    <section>
+        <div>
+            @for(weapon of playerModel().weapons;track weapon){
+                <h3>Weapon</h3>
+                <h3>{{weapon?.name}}</h3>
+            }
+            
+        </div>
+    </section>
 </form>
 <p>player-sheet:{{this.playerModel() | json }}</p>
